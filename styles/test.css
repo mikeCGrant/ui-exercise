@@ -1,0 +1,476 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body,html {
+	width: 100%;
+	height: 100%;
+	font-family: helvetica,arial,sans-serif;
+	font-size: 16px;
+	color: white;
+	background-color: white;
+	padding: 0px;
+	margin: 0px;
+}
+body {
+	width: 100%;
+	height: 100%;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	border-radius: 0;
+}
+a:hover {
+	text-decoration: none;
+	color: white;
+}
+a:active {
+	text-decoration: none;
+	color: white;
+}
+
+.hiddenElement {
+	display: none;
+}
+
+.row {
+	/* override bootstrap */
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+#header, #main, #footer{
+	position: relative;
+	display: block;
+}
+
+#content, #sidebar {
+	position: absolute;
+	display: block;
+	top: 0px;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	background-color: #8d9395;
+	padding-left: 40px;
+}
+#main {
+	width: 100%;
+	height: auto;
+	overflow-x: hidden;
+}
+
+#content {
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	background-color: rgba(255, 255, 255, 1);
+	clear: both;
+	margin-left: 0px;
+	padding: 40px 26px 40px 26px;
+}
+#sidebar {
+	width: 30%;
+	height: 100%;
+	right: 0px;
+	background-color: rgba(0, 0, 0, 0.10);
+	padding: 20px 40px;
+	
+	font-family: Merriweather,georgia,serif;
+	color: #777;
+	
+	/* position off screen and hide */
+	transform: translateX(100%);
+}
+
+#sidebar h1 {
+	font-family: Merriweather,georgia,serif;
+	color: #1a1a1a;
+    font-size: 22px;
+}
+
+#sidebar p {
+	font-family: Merriweather,georgia,serif;
+	color: #777;
+}
+
+#footer {
+	width: 100%;
+	height: 50px;
+	clear: both;
+	padding: 0px 40px;
+	background-color: #d9d9d9;
+	font-family: Merriweather,georgia,serif;
+	color: #777;
+}
+#footer span {
+	position: relative;
+	display: block;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+}
+
+#header .headerBtn {
+	position: relative;
+	display: block;
+	float: left;
+	width: auto;
+	height: 100%;
+	padding: 0px 20px;
+	cursor: pointer;
+	border-radius: 0;
+	font-family: Merriweather,georgia,serif;
+	font-size: 20px;
+	text-decoration: none;
+	color: white;
+}
+#header .headerBtn:hover {
+	color: white;
+}
+#header .headerBtn:active {
+	color: white;
+}
+
+#header .headerBtn.selected {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+#header .headerBtn:last-of-type {
+}
+
+#header span {
+	position: relative;
+	display: block;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+}
+
+#header .headerBtn:hover{
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+#content .card {
+    background-color: white;
+}
+
+#content .card .image {
+	position: relative;
+	display: block;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: auto;
+	font-family: Merriweather,georgia,serif;
+}
+
+#content .card .header , #content .card .body {
+	margin-before: 0.83em;
+    margin-after: 0.83em;
+    margin-start: 0px;
+    margin-end: 0px;
+	-webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+	-moz-margin-before: 0.83em;
+    -moz-margin-after: 0.83em;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+	-ms-margin-before: 0.83em;
+    -ms-margin-after: 0.83em;
+    -ms-margin-start: 0px;
+    -ms-margin-end: 0px;
+	-o-margin-before: 0.83em;
+    -o-margin-after: 0.83em;
+    -o-margin-start: 0px;
+    -o-margin-end: 0px;
+}
+
+#content .card .header {
+	position: relative;
+	display: block;
+	font-family: Merriweather,georgia,serif;
+	color: #1a1a1a;
+    font-size: 22px;
+}
+
+#content .card .body {
+	position: relative;
+	display: block;
+	color: #777;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes contentExpandAnim {
+	0% { width: 70%; }
+	100% { width: 100%; }
+}
+
+@keyframes contentContactAnim {
+	0% { width: 100%; }
+	100% { width: 70%; }
+}
+
+.contentExpand {
+	animation-name: contentExpandAnim;
+	animation-duration: 0.4s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	
+	-webkit-animation-name: contentExpandAnim;
+	-webkit-animation-duration: 0.4s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: running;
+	
+	-moz-animation-name: contentExpandAnim;
+	-moz-animation-duration: 0.4s;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-delay: 0s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-direction: normal;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: running;
+	
+	-ms-animation-name: contentExpandAnim;
+	-ms-animation-duration: 0.4s;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-animation-delay: 0s;
+	-ms-animation-iteration-count: 1;
+	-ms-animation-direction: normal;
+	-ms-animation-fill-mode: forwards;
+	-ms-animation-play-state: running;
+	
+	-o-animation-name: contentExpandAnim;
+	-o-animation-duration: 0.4s;
+	-o-animation-timing-function: ease-in-out;
+	-o-animation-delay: 0s;
+	-o-animation-iteration-count: 1;
+	-o-animation-direction: normal;
+	-o-animation-fill-mode: forwards;
+	-o-animation-play-state: running;
+}
+
+.contentContact {
+	animation-name: contentContactAnim;
+	animation-duration: 0.4s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	
+	-webkit-animation-name: contentContactAnim;
+	-webkit-animation-duration: 0.4s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: running;
+	
+	-moz-animation-name: contentContactAnim;
+	-moz-animation-duration: 0.4s;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-delay: 0s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-direction: normal;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: running;
+	
+	-ms-animation-name: contentContactAnim;
+	-ms-animation-duration: 0.4s;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-animation-delay: 0s;
+	-ms-animation-iteration-count: 1;
+	-ms-animation-direction: normal;
+	-ms-animation-fill-mode: forwards;
+	-ms-animation-play-state: running;
+	
+	-o-animation-name: contentContactAnim;
+	-o-animation-duration: 0.4s;
+	-o-animation-timing-function: ease-in-out;
+	-o-animation-delay: 0s;
+	-o-animation-iteration-count: 1;
+	-o-animation-direction: normal;
+	-o-animation-fill-mode: forwards;
+	-o-animation-play-state: running;
+}
+
+@keyframes showSidebarAnim {
+	0% { transform: translateX(100%); }
+	100% { transform: translateX(0%); }
+}
+
+@keyframes hideSidebarAnim {
+	0% { transform: translateX(0%); }
+	100% { transform: translateX(100%); }
+}
+
+.showSidebar {
+	animation-name: showSidebarAnim;
+	animation-duration: 0.4s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	
+	-webkit-animation-name: showSidebarAnim;
+	-webkit-animation-duration: 0.4s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: running;
+	
+	-moz-animation-name: showSidebarAnim;
+	-moz-animation-duration: 0.4s;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-delay: 0s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-direction: normal;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: running;
+	
+	-ms-animation-name: showSidebarAnim;
+	-ms-animation-duration: 0.4s;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-animation-delay: 0s;
+	-ms-animation-iteration-count: 1;
+	-ms-animation-direction: normal;
+	-ms-animation-fill-mode: forwards;
+	-ms-animation-play-state: running;
+	
+	-o-animation-name: showSidebarAnim;
+	-o-animation-duration: 0.4s;
+	-o-animation-timing-function: ease-in-out;
+	-o-animation-delay: 0s;
+	-o-animation-iteration-count: 1;
+	-o-animation-direction: normal;
+	-o-animation-fill-mode: forwards;
+	-o-animation-play-state: running;
+}
+
+.hideSidebar {
+	animation-name: hideSidebarAnim;
+	animation-duration: 0.4s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	
+	-webkit-animation-name: hideSidebarAnim;
+	-webkit-animation-duration: 0.4s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: running;
+	
+	-moz-animation-name: hideSidebarAnim;
+	-moz-animation-duration: 0.4s;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-delay: 0s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-direction: normal;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: running;
+	
+	-ms-animation-name: hideSidebarAnim;
+	-ms-animation-duration: 0.4s;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-animation-delay: 0s;
+	-ms-animation-iteration-count: 1;
+	-ms-animation-direction: normal;
+	-ms-animation-fill-mode: forwards;
+	-ms-animation-play-state: running;
+	
+	-o-animation-name: hideSidebarAnim;
+	-o-animation-duration: 0.4s;
+	-o-animation-timing-function: ease-in-out;
+	-o-animation-delay: 0s;
+	-o-animation-iteration-count: 1;
+	-o-animation-direction: normal;
+	-o-animation-fill-mode: forwards;
+	-o-animation-play-state: running;
+}
+
+@media (min-width: 768px) {
+	#footer {
+		position: fixed;
+		bottom: 0px;
+	}
+}
+
+@media (max-width: 500px) {
+	#header {
+		padding-left: 0px;
+	}
+	#header .headerBtn {
+		padding: 0px 16px;
+		font-size: 18px;
+	}
+	@keyframes contentExpandAnim {
+		0% { width: 60%; }
+	}
+	@keyframes contentContactAnim {
+		100% { width: 60%; }
+	}
+	#sidebar {
+		width: 40%;
+		padding: 20px 20px;
+	}
+	#sidebar h1 {
+		font-size: 20px;
+	}
+	#sidebar p {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 320px) {
+	#header {
+		padding-left: 0px;
+	}
+	#header .headerBtn {
+		padding: 0px 16px;
+		font-size: 16px;
+	}
+	#sidebar h1 {
+		font-size: 18px;
+	}
+	#sidebar p {
+		font-size: 12px;
+	}
+}
